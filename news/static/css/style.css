@@ -162,6 +162,30 @@ small{
 
 
 .footer{
-    background-color: #484848;
-    color: white;
+    border-top: 2px solid rgb(82, 82, 82);
+    color: black;
+    padding: 20px;
+}
+.company{
+    background-color: #e5e5e5;
+}
+
+
+/* News Details */
+.newsBox img{
+    height: auto;
+    width: 100%;
+}
+.info-news{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+
+@media only screen and (max-width:600px){
+    .hide-in-mobile{
+        display: none;
+    }
 }

@@ -27,11 +27,7 @@
         <meta property="og:site" content="" /> <!-- website link -->
         <meta property="og:title" content="SajhaSanchar"/> <!-- title shown in the actual shared post -->
         <meta property="og:description" content="SajhaSanchar. Daily News. Latest News Nepal. Trend News Nepal" /> <!-- description shown in the actual shared post -->
-        <!-- <meta property="og:image" content="http://merobilling.com/static/images/logo.jpg" /> image link, make sure it's jpg -->
-        <!-- <meta property="og:url" content="" /> where do you want your post to link to -->
-        <!-- <meta name="twitter:card" content="summary_large_image"> to have large image post format in Twitter -->
-
-        <!-- Webpage Title --> 
+      
     {% endblock seo %}
   
         
@@ -153,7 +149,70 @@
                
               {% endblock inside %}
               <div class="footer mt-4 ">
-                <p>All Right Reserve</p>
+                <div class="row">
+                  <div class="col-lg-4 col-12 mt-2">
+                    <p class="ps-3 my-auto" style="font-size: 20px; font-weight: bold; background-color: #d5d5d5; border-bottom: 2px solid rgb(126, 126, 126);">
+                      श्रेणी
+                    </p>
+                    {% for i in category  %}
+                    <div class="cat-item mt-2">
+                     
+                      <p class="ps-3 my-auto">
+                        {{i.name}}
+                      </p>
+                    </div>
+                  {% endfor %}     
+                  </div>
+                  <div class="col-lg-4 col-12 mt-2">
+                    <p class="ps-3 my-auto" style="font-size: 20px; font-weight: bold; background-color: #d5d5d5; border-bottom: 2px solid rgb(126, 126, 126);">
+                      ताजा समाचार
+                    </p>
+                    {% for i in latest  %}
+                    <div class="cat-item mt-2">
+                     
+                      <p class="ps-3 my-auto">
+                        {{i.title}}
+                      </p>
+                    </div>
+                  {% endfor %}     
+                  </div>
+                  <div class="col-lg-4 col-12 mt-2">
+                    <p class="ps-3 my-auto" style="font-size: 20px; font-weight: bold;background-color: #d5d5d5; border-bottom: 2px solid rgb(126, 126, 126);">
+                      सम्पर्क गर्नुहोस
+                    </p>
+                 
+                    <div class="cat-item mt-2 ">
+                      <i class="fab fa-facebook" style="font-size: 40px;"></i>
+                      <p class="ps-3 my-auto">
+                        Facebook
+                      </p>
+                    </div>
+                    <div class="cat-item mt-2 ">
+                      <i class="fab fa-twitter" style="font-size: 40px;"></i>
+                      <p class="ps-3 my-auto">
+                        Twitter
+                      </p>
+                    </div>
+                    <div class="cat-item mt-2 ">
+                      <i class="fab fa-youtube" style="font-size: 40px;"></i>
+                      <p class="ps-3 my-auto">
+                        Youtube
+                      </p>
+                    </div>
+                    <div class="cat-item mt-2 ">
+                      <i class="fa fa-mobile" style="font-size: 40px;"></i>
+                      <p class="ps-3 my-auto">
+                        9861397178, 9818082513
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-12 company mt-2">
+                    <p class="text-center my-auto">All Right Reserve. Design and Developed by 
+                      <a href="https://www.watnepal.com" target="_blank">Wake and Tech Nepal</a>
+                    </p>
+                  </div>
+                 
+                </div>
               </div>
             </div>
            
@@ -168,6 +227,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
 <script src="{% static 'fontawesome/js/all.min.js' %}"></script>
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v15.0&appId=188302466607071&autoLogAppEvents=1" nonce="FLtWb4wT"></script>
 <script>
 
 flatpickr("input[type=datetime-local]", {
