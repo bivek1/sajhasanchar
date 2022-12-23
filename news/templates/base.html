@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{%static 'bootstrap/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{%static 'css/style.css'%}">
+    <link rel="stylesheet" href="{%static 'fontawesome/css/all.min.css'%}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <title>
+        
+    {% block title %}
+        Sajha Sanchar. Daily Latest News. Trending News
+    {% endblock title %}
+            
+    </title>
+    
+    {% block seo %}
+        <!-- SEO Meta Tags -->
+        <meta name="description" content="SajhaSanchar. Daily News. Latest News Nepal. Trend News Nepal">
+        <meta name="author" content="SajhaSanchar">
+
+        <!-- OG Meta Tags to improve the way the post looks when you share the page on Facebook, Twitter, LinkedIn -->
+        <meta property="og:site_name" content="SajhaSanchar" /> <!-- website name -->
+        <meta property="og:site" content="" /> <!-- website link -->
+        <meta property="og:title" content="SajhaSanchar"/> <!-- title shown in the actual shared post -->
+        <meta property="og:description" content="SajhaSanchar. Daily News. Latest News Nepal. Trend News Nepal" /> <!-- description shown in the actual shared post -->
+        <!-- <meta property="og:image" content="http://merobilling.com/static/images/logo.jpg" /> image link, make sure it's jpg -->
+        <!-- <meta property="og:url" content="" /> where do you want your post to link to -->
+        <!-- <meta name="twitter:card" content="summary_large_image"> to have large image post format in Twitter -->
+
+        <!-- Webpage Title --> 
+    {% endblock seo %}
+  
+        
+</head>
+<body>
+
+
+    <div class="container-fluid p-0 m-0">
+        <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light d-block m-0 pt-3">
+            <div class="container-fluid">
+              <a href="{%url 'homepage:homepage'%}">
+                <h4>
+                 <img src="{%static 'image/logo.jpg'%}" alt="SajhaSanchar" style="height: auto;width: 160px;">
+                  
+                </h4>
+              </a>
+             
+              
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{%url 'homepage:homepage'%}">
+                      
+                      <i class="fa fa-home"></i>
+                      गृहपृष्ठ
+                    
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">
+                      <i class="fas fa-rss-square"></i>
+                      ताजा</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">
+                      <i class="fas fa-newspaper"></i>
+                      ट्रेन्डिङ</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">
+                      <i class="fab fa-hotjar"></i>
+                      ताजा</a>
+                  </li>
+                 
+                  
+                </ul>
+              
+              </div>
+            </div>
+        
+        </nav>
+        <div class="row m-0">
+          <div class="maintain"> 
+
+          </div>
+            <div class="col-lg-2 col-md-3 col-12 pb-5 hide-in-mobile">
+              <div class="category-box">
+                {% for i in category  %}
+                  <div class="cat-item mt-2 ">
+                    {% if i.image %}
+                    <img class="my-auto" src="{{i.image.url}}" alt="{{i.name}}" style="height: 25px; width: 25px; border-radius: 30px;">
+                    {% endif %}
+                    <p class="ps-3 my-auto">
+                      {{i.name}}
+                    </p>
+                  </div>
+                {% endfor %}     
+                <hr>
+                <a href="http://">
+                  <div class="cat-item mt-2 ">
+                    <i class="fa fa-mobile" style="font-size: 30px;"></i>
+                    <p class="ps-3 my-auto">
+                      सम्पर्क
+                    </p>
+                  </div>     
+                </a>
+                <a href="http://">
+                  <div class="cat-item mt-2 ">
+                    <i class="fa fa-info" style="font-size: 30px;"></i>
+                    <p class="ps-3 my-auto">
+                      हाम्रोबारे
+                    </p>
+                  </div>   
+                </a>
+                <hr>
+                <p class="text-bold text-center">
+                  सोसल मिडिया
+                </p>
+                <hr>
+                <a href="http://">
+                  <div class="cat-item mt-2 ">
+                  
+                    <i class="fab fa-facebook" style="font-size: 30px;"></i>
+                    <p class="ps-3 my-auto">
+                      फेसबुक
+                    </p>
+                  </div>   
+                </a>
+                <a href="http://">
+                  <div class="cat-item mt-2 ">
+                 
+                    <i class="fab fa-twitter" style="font-size: 30px;"></i>
+                    <p class="ps-3 my-auto">
+                      Twitter
+                    </p>
+                  </div>   
+                </a>
+
+                        
+              </div>
+                  
+            </div>
+            <div class="col-lg-10 col-md-9 col-12">
+              
+              {% block inside %}
+               
+              {% endblock inside %}
+              <div class="footer mt-4 ">
+                <p>All Right Reserve</p>
+              </div>
+            </div>
+           
+        </div>
+       
+
+    </div>
+  
+    
+</body>
+<script src="{%static 'bootstrap/bootstrap.bundle.min.js'%}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+<script src="{% static 'fontawesome/js/all.min.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script>
+
+flatpickr("input[type=datetime-local]", {
+        enableTime: true,
+        minDate: "today",
+        allowInput: true,
+});
+flatpickr("input[type=date]", {
+    allowInput: true,
+    altInput: true,
+    altFormat: "F j, Y",
+});
+
+
+</script>
+
+</html>

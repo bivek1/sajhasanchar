@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+
+
+{% block inside %}
+   <!-- Latest News -->
+   <div class="row m-0">
+        {% for i in news  %}
+            <div class="col-lg-6 col-12 m-0">
+                {% if  i.image %}
+                    <div class="news-card p-0 m-0 mt-4">
+                        <div class="row m-0 p-2">
+                            <div class="col-lg-7 col-md-8 col-12 m-0">
+                                <img class="news-image" src="{{i.image.url}}" alt="{{i.title}}">
+                            </div>
+                            <div class="col-lg-5 col-md-4 col-12 m-0">
+                                <h5>{{i.title}}</h5>
+                                <div class="news-bottom">
+                                    <small>
+                                    
+                                        {{i.created_at}}
+                                    </small>
+                                    <small>
+                                        <i class="fa fa-eye"></i>
+                                        {{i.total_visit}}
+                                    </small>
+                                    
+                                </div>
+                                <hr>
+                                <small>
+                                    {{i.short_description|truncatewords:15}}
+                                </small>
+                            </div>
+                        </div>
+                    
+                    
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+<!-- Latest News Ene -->
+
+
+<!-- Hot News and Category -->
+<div class="row m-0">
+    <div class="col-12 col-lg-9 mt-3">
+        <h4>ताजा</h4>
+        <hr>
+        <div class="row">
+            {% for i in hot  %}
+            
+            {% if i.image %}
+            <div class="news-card p-0 m-0 mt-4">
+                <div class="row m-0 p-2">
+                    <div class="col-lg-7 col-md-8 col-12 m-0">
+                        <img class="news-image" src="{{i.image.url}}" alt="{{i.title}}">
+                    </div>
+                    <div class="col-lg-5 col-md-4 col-12 m-0">
+                        <h5>{{i.title}}</h5>
+                        <div class="news-bottom">
+                            <small>
+                            
+                                {{i.created_at}}
+                            </small>
+                            <small>
+                                <i class="fa fa-eye"></i>
+                                {{i.total_visit}}
+                            </small>
+                            
+                        </div>
+                        <hr>
+                        <small>
+                            {{i.short_description|truncatewords:25}}
+                        </small>
+                    </div>
+                </div>
+            
+            
+            </div>
+            {% endif %}
+                
+            
+            {% endfor %}
+        </div>
+
+    </div>
+    <div class="col-12 col-lg-3 mt-3">
+        <small class="badge bg-primary">
+            भर्खरको
+        </small>
+        <hr>
+        <div class="row">
+            {% for i in news  %}
+                <div class="col-12">
+                    <div class="news-card-border ">
+                        <h6 class="text-center">
+                            {{i.title}}
+                        </h6>
+                    </div>
+                  
+                    
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+   
+</div>
+<!-- Hot News -->  
+{% endblock inside %}
+    
