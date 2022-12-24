@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}
     {{news.title}}
@@ -18,7 +19,34 @@
 
 {% block inside %}
     <div class="row m-0">
-        
+        <div class="col-11 col-lg-7 m-auto">
+            <div class="login-box p-2">
+                <div class="login-panel p-2 text-center">
+                    <img src="{%static 'image/logo.jpg'%}" alt="" style="height: auto; width: 100%;">
+                    <h1 class="text-center">Login</h1>
+                    <small>Enter your username and password</small>
+                    <hr>
+                    <form method = 'POST'>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">
+                                <i class="fa fa-user"></i>
+                            </span>
+                            <input type="text" name="username" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" required>
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">
+                                <i class="fa fa-key"></i>
+                            </span>
+                            <input type="password" name="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" required>
+                        </div>
+                        {% csrf_token %}
+                        <button class="btn btn-primary w-100" type="submit">
+                            Login
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock inside %}
     

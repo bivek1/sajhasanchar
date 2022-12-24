@@ -62,7 +62,7 @@
                   <li class="nav-item">
                     <a class="nav-link" href="#">
                       <i class="fas fa-rss-square"></i>
-                      ताजा</a>
+                      पछिल्लो</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#">
@@ -87,8 +87,79 @@
 
           </div>
             <div class="col-lg-2 col-md-3 col-12 pb-5 hide-in-mobile">
+              
+              
+                
               <div class="category-box">
+                {% if user.is_authenticated %}
+                <h6> {{user.username}} Dashboard</h6>
+                <hr>
+                {%url 'manager:dashboard' as dashboard%}
+                <a href="{{dashboard}}">
+                  <div class="cat-item mt-2 {%if request.path == dashboard%}active{%endif%}">
+              
+                    <i class="fas fa-tachometer-fast" style="font-size: 30px;"></i>
+                    <p class="ps-3 my-auto">
+                      ड्यासबोर्ड
+                    </p>
+                  </div>     
+                </a>
+                {%url 'manager:news' as news%}
+                <a href="{{news}}">
+                  <div class="cat-item mt-2 {%if request.path == news%}active{%endif%} ">
+               
+                    <i class="fas fa-newspaper" style="font-size: 30px;"></i>
+                    <p class="ps-3 my-auto">
+                      समाचार
+                    </p>
+                  </div>     
+                </a>
+                <a href="http://">
+                  <div class="cat-item mt-2 ">
+                    
+                    <i class="fas fa-rss" style="font-size: 30px;"></i>
+                    <p class="ps-3 my-auto">
+                      वर्ग
+                    </p>
+                  </div>   
+                </a>
+                <a href="http://">
+                  <div class="cat-item mt-2 ">
+                    <i class="fas fa-superscript" style="font-size: 30px;"></i>
+                    <p class="ps-3 my-auto">
+                      उप श्रेणी
+                    </p>
+                  </div>   
+                </a>
+                <a href="http://">
+                  <div class="cat-item mt-2 ">
+                  
+                    <i class="fas fa-users" style="font-size: 30px;"></i>
+                    <p class="ps-3 my-auto">
+                      प्रयोगकर्ता
+                    </p>
+                  </div>   
+                </a>
+                <a href="{%url 'manager:nowLogout'%}">
+                  <div class="cat-item mt-2 ">
+                    
+                    <i class="fal fa-sign-out" style="font-size: 30px;"></i>
+                    <p class="ps-3 my-auto">
+                        बाहिर जाऊ
+                    </p>
+                  </div>   
+                </a>
+                <hr>
+
+              {% endif %}
+              <h6 class="text-center text-bold">
+                <b>
+                  श्रेणी
+                </b>
+                </h6>
+              <hr>
                 {% for i in category  %}
+                
                   <div class="cat-item mt-2 ">
                     {% if i.image %}
                     <img class="my-auto" src="{{i.image.url}}" alt="{{i.name}}" style="height: 25px; width: 25px; border-radius: 30px;">

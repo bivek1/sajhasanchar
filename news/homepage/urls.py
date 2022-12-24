@@ -5,5 +5,6 @@ app_name = "homepage"
 
 urlpatterns= [
     path('', views.Homepage, name="homepage"),
-    path('news-details/<int:id>/<slug:slug>', views.newsDetails, name = "newsDetails")
+    path('login', views.Login, name ="login"),
+    path('news-details/<int:id>', views.newsDetails, name = "newsDetails")
 ]

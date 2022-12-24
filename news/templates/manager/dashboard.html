@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{user.username}} Dashboard
+{% endblock title %}
+
+
+{% block inside %}
+    <H1>ड्यासबोर्ड</H1>
+    <hr>
+    <div class="row mt-2">
+        <div class="col-12 col-lg-3">
+            <a href="http://">
+                <div class="dashboard-box">
+                    <div class="my-auto">
+                        <h5>ताजा समाचार</h5>
+                        <h6 class="text-danger">आज: 20</h6>
+                    </div>
+                    <div class="my-auto">
+                        <div class="text-center">
+    
+                            <i class="fab fa-hotjar text-danger" style="font-size: 30px; "></i>
+                            <p class="text-danger" >
+                                कुल: 2000
+                            </p>
+                        </div>
+                       
+                    </div>
+                </div>
+            </a>
+            
+        </div>
+
+        <div class="col-12 col-lg-3">
+            <a href="http://">
+                <div class="dashboard-box">
+                    <div class="my-auto">
+                        <h5>पछिल्लो समाचार</h5>
+                        <h6 style="color: rgb(33, 134, 229);">आज: 20</h6>
+                    </div>
+                    <div class="my-auto">
+                        <div class="text-center">
+                            <i class="fas fa-rss-square" style="font-size: 30px; color: rgb(33, 134, 229);"></i>
+                            <p style="color: rgb(33, 134, 229);">
+                                कुल: 2000</p>
+                        </div>
+                       
+                    </div>
+                </div>
+            </a>
+           
+        </div>
+
+
+        <div class="col-12 col-lg-3">
+            <a href="http://">
+                <div class="dashboard-box">
+                    <div class="my-auto">
+                        <h5>ट्रेन्डिङ समाचार</h5>
+                        <h6 style="color: rgb(160, 33, 229);">आज: 20</h6>
+                    </div>
+                    <div class="my-auto">
+                        <div class="text-center">
+                            <i class="fal fa-newspaper" style="font-size: 30px; color: rgb(160, 33, 229);"></i>
+                            <p style="color: rgb(160, 33, 229);">
+                                कुल: 2000</p>
+                        </div>
+                       
+                    </div>
+                </div>
+            </a>
+          
+        </div>
+
+        <div class="col-12 col-lg-3">
+            <a href="http://">
+                <div class="dashboard-box">
+                    <div class="my-auto">
+                        <h5>अन्य समाचार</h5>
+                        <h6 style="color: rgb(115, 229, 33);">आज: 20</h6>
+                    </div>
+                    <div class="my-auto">
+                        <div class="text-center">
+                            <i class="fal fa-newspaper" style="font-size: 30px; color: rgb(115, 229, 33);"></i>
+                            <p style="color: rgb(115, 229, 33);">
+                                कुल: 2000</p>
+                        </div>
+                       
+                    </div>
+                </div>
+            </a>
+          
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-12">
+            <div class="view-box">
+                <div class="my-auto">
+                    <h3 class="d-inline">
+                        कुल दृश्य
+                    </h3>
+                   
+                    <i class="far fa-eye" style="font-size: 23px;"></i>
+
+                </div>
+                <div class="my-auto">
+                    <i class="fas fa-arrow-alt-up" style="font-size: 23px;"></i>
+                    <h3 class="d-inline">2000</h3>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+{% endblock inside %}
+    
+    

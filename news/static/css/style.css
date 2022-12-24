@@ -27,11 +27,11 @@ a{
     border: none;
 }
 .btn-primary{
-    background-color: #fba721;
+    background-color: rgb(81, 81, 81);
     border-radius: 0%!important;
 }
 .btn-primary:hover{
-    background-color: #fa9a00;
+    background-color: #c97c00;
 }
 .bg-primary{
     background-color:#e93617!important;
@@ -181,7 +181,37 @@ small{
     justify-content: space-between;
 }
 
+/* Login Design */
+.login-box{
+    background-color: rgb(243, 243, 243);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
 
+
+
+/* Dashboard Design */
+.dashboard-box{
+    width: 100%;
+    padding: 20px;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    cursor: pointer;
+}
+.dashboard-box:hover{
+    background-color: rgb(234, 234, 234);
+    box-shadow: rgba(83, 83, 88, 0.2) 0px 7px 29px 0px;
+    transition-delay: .2s;
+}
+.view-box{
+    width: 100%;
+    padding: 10px;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
 
 
 @media only screen and (max-width:600px){
