@@ -18,8 +18,21 @@
 {% endblock seo %}
 
 {% block inside %}
+<style>
+    input{
+        font-family: Arial!important;
+    }
+
+</style>
     <div class="row m-0">
         <div class="col-11 col-lg-7 m-auto">
+            {% for i in messages  %}
+            <div class="alert alert-secondary alert-warning alert-dismissible fade show" role="alert">
+                {{i}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+           
+            {% endfor %}
             <div class="login-box p-2">
                 <div class="login-panel p-2 text-center">
                     <img src="{%static 'image/logo.jpg'%}" alt="" style="height: auto; width: 100%;">

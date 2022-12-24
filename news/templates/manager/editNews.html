@@ -6,8 +6,13 @@
 
 
 {% block inside %}
-    <H1>समाचार</H1>
-    <small>तपाईं समाचार हेर्न, थप्न, अद्यावधिक गर्न र मेटाउन सक्नुहुन्छ</small>
+<style>
+    #id_image{
+        font-family: Arial!important;
+    }
+</style>
+    <H1>समाचार अपडेट गर्नुहोस्</H1>
+    <small>तपाईं समाचार अपडेट गर्नुहोस्!</small>
     <hr>
     
     {% for i in messages  %}
@@ -24,11 +29,17 @@
                 {{form}}
                 {{form.media}}
                 {% csrf_token %}
-                <button class="btn btn-primary mt-2">नयाँ समाचार थप्नुहोस्</button>
+                <button class="btn btn-primary mt-2">समाचार अपडेट गर्नुहोस्</button>
             </form>
        </div>
         <div class="col-12 col-lg-3"  >
-            <div class="d-flex" style="justify-content: space-between;">
+            
+            {% if real_news.image %}
+                <img src="{{real_news.image.url}}" alt="{{real_news.title}}" style="height: auto; width: 100%;">
+            {% endif %}
+                
+         
+            <div class="d-flex mt-3" style="justify-content: space-between;">
                 <p class="my-auto" style="font-size: 20px; font-weight: bold; background-color: #d5d5d5; border-bottom: 2px solid rgb(126, 126, 126);">
                     पछिल्लो समाचार
                 </p>

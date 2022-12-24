@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{user.username}} Dashboard
+{% endblock title %}
+
+
+{% block inside %}
+<style>
+    input{
+        font-family: Arial!important;
+    }
+   
+</style>
+    <H1>प्रयोगकर्ता</H1>
+    <small>तपाईं प्रयोगकर्ता हेर्न, थप्न, अद्यावधिक गर्न र मेटाउन सक्नुहुन्छ</small>
+    <hr>
+    
+    {% for i in messages  %}
+    <div class="alert alert-secondary alert-warning alert-dismissible fade show" role="alert">
+        {{i}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+   
+    {% endfor %}
+        
+    <div class="row mt-2">
+       <div class="col-12 col-lg-8">
+            <form action="" method="post" enctype="multipart/form-data">
+                {{form}}
+                <input type="text" name="edit" id="edit" hidden>
+                {% csrf_token %}
+                <button class="btn btn-primary mt-2" id="add_btn">नयाँ प्रयोगकर्ता थप्नुहोस्</button>
+                <button type="reset" class="btn btn-warning ps-3 mt-2">RESET</button>
+            </form>
+
+            
+       </div>
+        <div class="col-12 col-lg-4 mt-3"  >
+            <div class="d-flex" style="justify-content: space-between;">
+                <p class="my-auto" style="font-size: 20px; font-weight: bold; background-color: #d5d5d5; border-bottom: 2px solid rgb(126, 126, 126);">
+                    सबै प्रयोगकर्ता
+                </p>
+                
+            </div>
+           
+
+            {% for i in all_category  %}
+            <div class="all-item mt-2" >
+                <p class="my-auto text-center">
+                    {{i.username}}
+                </p>
+                <div class="d-flex" style="justify-content:center;">
+                
+                    <button class="btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal{{i.id}}">
+                        <i class="fa fa-trash"></i> Delete
+                    </button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal{{i.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">के तपाइँ निश्चित रूपमा प्रयोगकर्ता मेटाउन चाहनुहुन्छ?</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                            {{i.username}} | यो प्रयोगकर्ता हटाउनुहोस्
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <a href="{%url 'manager:deleteUser' i.id%}">
+                                <button type="button" class="btn btn-danger">Delete</button>
+                            </a>
+                            
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}  
+        </div>
+        <div class="col-12 col-lg-12 mt-3">
+            <div class="passwordChange">
+                <h6 class="text-center">आफ्नो पासवर्ड परिवर्तन गर्नुहोस्</h6>
+                <p class="text-center">यहाँबाट आफ्नो पासवर्ड परिवर्तन गर्नुहोस्</p>
+                <form action="{%url 'manager:checkPassword'%}" method="post">
+                    {{password_form}}
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-primary mt-2">
+                        पासवर्ड परिवर्तन गर्नुहोस्
+                    </button>
+                </form>
+            </div>
+           
+        </div>   
+    </div>
+    <script>
+        function editCategory(self, id, name, slug){
+        
+            document.getElementById('add_btn').innerHTML = "अद्यावधिक गर्न"
+            parent = self.parentElement
+            
+            parent.style.backgroundColor = "red"
+
+
+            document.getElementById('edit').value = id
+            document.getElementById('id_name').value = name
+            document.getElementById('id_slug').value = slug
+           
+    
+        }
+    </script>
+  
+{% endblock inside %}
+    
+    

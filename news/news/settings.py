@@ -145,5 +145,6 @@ CKEDITOR_CONFIGS = {
     'default': {
         'toolbar': None,
         'width': 'full',
+        'lang':'hindi'
     },
 }

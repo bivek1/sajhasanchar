@@ -5,6 +5,14 @@
     box-shadow: rgba(86, 85, 95, 0.15) 0px 48px 100px 0px;
     border-bottom: 1px solid #a5a5a5;
 }
+@font-face {
+    font-family: pretti;
+    src: url('/static/css/Preeti.ttf');
+}
+input{
+    font-family: pretti!important;
+    font-size: 21px!important;
+}
 a{
     text-decoration: none;
     color: inherit;
@@ -26,8 +34,11 @@ a{
 .btn{
     border: none;
 }
+.btn-sm{
+    border: none;
+}
 .btn-primary{
-    background-color: rgb(81, 81, 81);
+    background-color: rgb(151, 151, 151);
     border-radius: 0%!important;
 }
 .btn-primary:hover{
@@ -211,6 +222,19 @@ small{
     display: flex;
     justify-content: space-between;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.all-item{
+    display:flex;
+    justify-content: space-between;
+    background-color: #e0e0e0;
+    padding: 5px;
+    
+}
+.passwordChange{
+    background-color: white;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 20px;
+
 }
 
 

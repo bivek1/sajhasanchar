@@ -114,8 +114,9 @@
                     </p>
                   </div>     
                 </a>
-                <a href="http://">
-                  <div class="cat-item mt-2 ">
+                {%url 'manager:category' as categ%}
+                <a href="{{categ}}">
+                  <div class="cat-item mt-2 {%if request.path == categ%}active{%endif%}  ">
                     
                     <i class="fas fa-rss" style="font-size: 30px;"></i>
                     <p class="ps-3 my-auto">
@@ -123,17 +124,18 @@
                     </p>
                   </div>   
                 </a>
-                <a href="http://">
-                  <div class="cat-item mt-2 ">
+                {%url 'manager:subcategory' as subcategory%}
+                <a href="{{subcategory}}">
+                  <div class="cat-item mt-2  {%if request.path == subcategory%}active{%endif%}">
                     <i class="fas fa-superscript" style="font-size: 30px;"></i>
                     <p class="ps-3 my-auto">
                       उप श्रेणी
                     </p>
                   </div>   
                 </a>
-                <a href="http://">
-                  <div class="cat-item mt-2 ">
-                  
+                {%url 'manager:userList' as userList%}
+                <a href="{{userList}}">
+                  <div class="cat-item mt-2 {%if request.path == userList%}active{%endif%}">
                     <i class="fas fa-users" style="font-size: 30px;"></i>
                     <p class="ps-3 my-auto">
                       प्रयोगकर्ता
