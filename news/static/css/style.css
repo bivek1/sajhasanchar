@@ -51,7 +51,9 @@ a{
     background-color: #ff9d00!important;
 }
 
-
+h5{
+    margin-top: 10px!important;
+}
 .btn-secondary{
     background-color: #ff9d00;
     border-radius: 0%!important;
@@ -91,11 +93,12 @@ a{
 
 /* Homepage Design */
 .category-box{
+    width: 100%;
     color: rgb(64, 64, 64);
-    padding: 30px;
+    padding: 5px;
     height:90vh;
     float: left;
-    position: fixed;
+    position: inherit;
     overflow: scroll;
     scroll-behavior: smooth;
     scrollbar-width: thin!important;

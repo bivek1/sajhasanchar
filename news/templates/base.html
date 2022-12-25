@@ -52,25 +52,27 @@
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{%url 'homepage:homepage'%}">
-                      
+                    {%url 'homepage:homepage' as homepage%}
+                    <a class="nav-link  {% if request.path == homepage %} active {% endif %}" aria-current="page" href="{{homepage}}">
                       <i class="fa fa-home"></i>
                       गृहपृष्ठ
-                    
                     </a>
                   </li>
+                  {%url 'homepage:selectNews' 'Latest' as TheLatest%}
                   <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link  {% if request.path == TheLatest %} active {% endif %}" href="{{TheLatest}}">
                       <i class="fas fa-rss-square"></i>
                       पछिल्लो</a>
                   </li>
+                  {%url 'homepage:selectNews' 'Trending' as TheTrending%}
                   <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link {% if request.path == TheTrending %} active {% endif %}" href="{{TheTrending}}">
                       <i class="fas fa-newspaper"></i>
                       ट्रेन्डिङ</a>
                   </li>
+                  {%url 'homepage:selectNews' 'Hot' as Hottest%}
                   <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link {% if request.path == Hottest %} active {% endif %}" href="{{Hottest}}">
                       <i class="fab fa-hotjar"></i>
                       ताजा</a>
                   </li>
@@ -86,7 +88,7 @@
           <div class="maintain"> 
 
           </div>
-            <div class="col-lg-2 col-md-3 col-12 pb-5 hide-in-mobile">
+            <div class="col-lg-2 col-md-4 col-12 pb-5 hide-in-mobile">
               
               
                 
@@ -161,15 +163,17 @@
                 </h6>
               <hr>
                 {% for i in category  %}
-                
-                  <div class="cat-item mt-2 ">
-                    {% if i.image %}
-                    <img class="my-auto" src="{{i.image.url}}" alt="{{i.name}}" style="height: 25px; width: 25px; border-radius: 30px;">
-                    {% endif %}
-                    <p class="ps-3 my-auto">
-                      {{i.name}}
-                    </p>
-                  </div>
+                  <a href="{%url 'homepage:categoryNews' i.id i.slug%}">
+                    <div class="cat-item mt-2 ">
+                      {% if i.image %}
+                      <img class="my-auto" src="{{i.image.url}}" alt="{{i.name}}" style="height: 25px; width: 25px; border-radius: 30px;">
+                      {% endif %}
+                      <p class="ps-3 my-auto">
+                        {{i.name}}
+                      </p>
+                    </div>
+                  </a>
+                  
                 {% endfor %}     
                 <hr>
                 <a href="http://">
@@ -216,79 +220,89 @@
               </div>
                   
             </div>
-            <div class="col-lg-10 col-md-9 col-12">
+            <div class="col-lg-10 col-md-8 col-12">
               
               {% block inside %}
                
               {% endblock inside %}
-              <div class="footer mt-4 ">
-                <div class="row">
-                  <div class="col-lg-4 col-12 mt-2">
-                    <p class="ps-3 my-auto" style="font-size: 20px; font-weight: bold; background-color: #d5d5d5; border-bottom: 2px solid rgb(126, 126, 126);">
-                      श्रेणी
-                    </p>
-                    {% for i in category  %}
-                    <div class="cat-item mt-2">
-                     
-                      <p class="ps-3 my-auto">
-                        {{i.name}}
-                      </p>
-                    </div>
-                  {% endfor %}     
-                  </div>
-                  <div class="col-lg-4 col-12 mt-2">
-                    <p class="ps-3 my-auto" style="font-size: 20px; font-weight: bold; background-color: #d5d5d5; border-bottom: 2px solid rgb(126, 126, 126);">
-                      ताजा समाचार
-                    </p>
-                    {% for i in latest  %}
-                    <div class="cat-item mt-2">
-                     
-                      <p class="ps-3 my-auto">
-                        {{i.title}}
-                      </p>
-                    </div>
-                  {% endfor %}     
-                  </div>
-                  <div class="col-lg-4 col-12 mt-2">
-                    <p class="ps-3 my-auto" style="font-size: 20px; font-weight: bold;background-color: #d5d5d5; border-bottom: 2px solid rgb(126, 126, 126);">
-                      सम्पर्क गर्नुहोस
-                    </p>
-                 
-                    <div class="cat-item mt-2 ">
-                      <i class="fab fa-facebook" style="font-size: 40px;"></i>
-                      <p class="ps-3 my-auto">
-                        Facebook
-                      </p>
-                    </div>
-                    <div class="cat-item mt-2 ">
-                      <i class="fab fa-twitter" style="font-size: 40px;"></i>
-                      <p class="ps-3 my-auto">
-                        Twitter
-                      </p>
-                    </div>
-                    <div class="cat-item mt-2 ">
-                      <i class="fab fa-youtube" style="font-size: 40px;"></i>
-                      <p class="ps-3 my-auto">
-                        Youtube
-                      </p>
-                    </div>
-                    <div class="cat-item mt-2 ">
-                      <i class="fa fa-mobile" style="font-size: 40px;"></i>
-                      <p class="ps-3 my-auto">
-                        9861397178, 9818082513
-                      </p>
-                    </div>
-                  </div>
-                  <div class="col-12 company mt-2">
-                    <p class="text-center my-auto">All Right Reserve. Design and Developed by 
-                      <a href="https://www.watnepal.com" target="_blank">Wake and Tech Nepal</a>
-                    </p>
-                  </div>
-                 
-                </div>
-              </div>
+             
             </div>
            
+        </div>
+
+        <div class="row m-0">
+          <div class="footer mt-4 ">
+            <div class="row">
+              <div class="col-lg-4 col-12 mt-2">
+                <p class="ps-3 my-auto" style="font-size: 20px; font-weight: bold; background-color: #d5d5d5; border-bottom: 2px solid rgb(126, 126, 126);">
+                  श्रेणी
+                </p>
+                {% for i in category  %}
+                <a href="{%url 'homepage:categoryNews' i.id i.slug%}">
+                  <div class="cat-item mt-2">
+                 
+                    <p class="ps-3 my-auto">
+                      {{i.name}}
+                    </p>
+                  </div>
+                </a>
+             
+              {% endfor %}     
+              </div>
+              <div class="col-lg-4 col-12 mt-2">
+                <p class="ps-3 my-auto" style="font-size: 20px; font-weight: bold; background-color: #d5d5d5; border-bottom: 2px solid rgb(126, 126, 126);">
+                  ताजा समाचार
+                </p>
+                {% for i in latest  %}
+                <a href="{%url 'homepage:newsDetails' i.id%}">
+                  <div class="cat-item mt-2">
+                 
+                    <p class="ps-3 my-auto">
+                      {{i.title}}
+                    </p>
+                  </div>
+                </a>
+               
+              {% endfor %}     
+              </div>
+              <div class="col-lg-4 col-12 mt-2">
+                <p class="ps-3 my-auto" style="font-size: 20px; font-weight: bold;background-color: #d5d5d5; border-bottom: 2px solid rgb(126, 126, 126);">
+                  सम्पर्क गर्नुहोस
+                </p>
+             
+                <div class="cat-item mt-2 ">
+                  <i class="fab fa-facebook" style="font-size: 40px;"></i>
+                  <p class="ps-3 my-auto">
+                    Facebook
+                  </p>
+                </div>
+                <div class="cat-item mt-2 ">
+                  <i class="fab fa-twitter" style="font-size: 40px;"></i>
+                  <p class="ps-3 my-auto">
+                    Twitter
+                  </p>
+                </div>
+                <div class="cat-item mt-2 ">
+                  <i class="fab fa-youtube" style="font-size: 40px;"></i>
+                  <p class="ps-3 my-auto">
+                    Youtube
+                  </p>
+                </div>
+                <div class="cat-item mt-2 ">
+                  <i class="fa fa-mobile" style="font-size: 40px;"></i>
+                  <p class="ps-3 my-auto">
+                    9861397178, 9818082513
+                  </p>
+                </div>
+              </div>
+              <div class="col-12 company mt-2">
+                <p class="text-center my-auto">All Right Reserve. Design and Developed by 
+                  <a href="https://www.watnepal.com" target="_blank">Wake and Tech Nepal</a>
+                </p>
+              </div>
+             
+            </div>
+          </div>
         </div>
        
 
